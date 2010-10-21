@@ -1,5 +1,5 @@
 %define upstream_name    Text-Patch
-%define upstream_version 1.4
+%define upstream_version 1.8
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
