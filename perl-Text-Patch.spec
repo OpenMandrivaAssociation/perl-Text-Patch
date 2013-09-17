@@ -1,20 +1,18 @@
-%define upstream_name    Text-Patch
-%define upstream_version 1.8
-
-Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	6
+%define modname	Text-Patch
+%define modver	1.8
 
 Summary:	Patches text with given patch
-License:	GPL+ or Artistic
+Name:		perl-%{modname}
+Version:	%perl_convert_version %{modver}
+Release:	6
+License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Text/%{upstream_name}-%{upstream_version}.tar.gz
-
+Url:		http://search.cpan.org/dist/%{modname}
+Source0:	http://www.cpan.org/modules/by-module/Text/%{modname}-%{modver}.tar.gz
+BuildArch:	noarch
 BuildRequires:	perl-devel
 BuildRequires:	perl(Test::More)
 BuildRequires:	perl(Text::Diff)
-BuildArch:	noarch
 
 %description
 Text::Patch combines source text with given diff (difference) data. Diff
@@ -28,7 +26,7 @@ diff, see -u option).
   arguments will be considered patch options:
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -qn %{modname}-%{modver}
 
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor
@@ -42,33 +40,6 @@ diff, see -u option).
 
 %files
 %doc README META.yml ChangeLog
-%{_mandir}/man3/*
 %{perl_vendorlib}/*
+%{_mandir}/man3/*
 
-
-
-
-%changelog
-* Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 1.800.0-4mdv2012.0
-+ Revision: 765760
-- rebuilt for perl-5.14.2
-
-* Sat Jan 21 2012 Oden Eriksson <oeriksson@mandriva.com> 1.800.0-3
-+ Revision: 764286
-- rebuilt for perl-5.14.x
-
-* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 1.800.0-2
-+ Revision: 656975
-- rebuild for updated spec-helper
-
-* Thu Nov 11 2010 Sandro Cazzaniga <kharec@mandriva.org> 1.800.0-1mdv2011.0
-+ Revision: 596157
-- update to 1.8
-
-* Fri Feb 12 2010 Jérôme Quelin <jquelin@mandriva.org> 1.400.0-1mdv2011.0
-+ Revision: 504745
-- import perl-Text-Patch
-
-
-* Fri Feb 12 2010 cpan2dist 1.4-1mdv
-- initial mdv release, generated with cpan2dist
