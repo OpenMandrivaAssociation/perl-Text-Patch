@@ -1,14 +1,14 @@
 %define modname	Text-Patch
-%define modver	1.8
+%define modver 5.13.6
 
 Summary:	Patches text with given patch
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	10
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/Text/%{modname}-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Text/MIYAGAWA/perl-%{version}.tar.bz2
 BuildArch:	noarch
 BuildRequires:	perl-devel
 BuildRequires:	perl(Test::More)
@@ -42,4 +42,5 @@ diff, see -u option).
 %doc README META.yml ChangeLog
 %{perl_vendorlib}/*
 %{_mandir}/man3/*
+
 
